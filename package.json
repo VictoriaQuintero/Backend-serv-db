@@ -1,0 +1,30 @@
+{
+  "name": "Backend-serv-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictoriaQuintero/Backend-serv-db.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictoriaQuintero/Backend-serv-db/issues"
+  },
+  "homepage": "https://github.com/VictoriaQuintero/Backend-serv-db#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
