@@ -3,7 +3,7 @@ const router = express.Router();
 const {IngresoData} = require('../controladores/IngresoData');
 const Consultas = require('../controladores/busquedaData');
 const {UpdateData} = require('../controladores/UpdateData');
-
+const {DeleteData} = require('../controladores/DeleteData');
 
 //INGRESO DE DATOS
 router.post('/ingreso', IngresoData);
@@ -22,5 +22,8 @@ router.get('/busquedaProducto/:product', Consultas.BusquedaByProduct);
 
 //ACTUALIZAR DATOS
 router.put('/editarProducto/:id', UpdateData);
+
+//ELIMINAR PRODUCTO
+router.delete('/eliminar/:id', DeleteData);
 
 module.exports =  router;

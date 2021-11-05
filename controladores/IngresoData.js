@@ -1,26 +1,38 @@
-const { DataAlmacen, Marcas } = require('../conexionDB/models');
+const { DataAlmacen, Marcas } = require('../models/models');
+
 
 async function IngresoData(req, res) {
-    
-        let prod = await DataAlmacen.create({
-            Producto: req.body.producto.toLowerCase(),
-            Especificaciones: req.body.especificaciones,
+
+    let busquedaMar = await Marcas.findAll({
+        where: {
+            NombreMarca: req.body.marca.toLowerCase()
+        }
+    })
+    if (busquedaMar[0] === undefined) {
+
+        await Marcas.create({
+            NombreMarca: req.body.marca.toLowerCase(),
             MarcaId: req.body.MarcaId
         }, {
-            fields: ['Producto', 'Especificaciones', 'MarcaId']
+            fields: ["NombreMarca", 'MarcaId']
         });
-        
-        let Mar = await Marcas.create({
-            NombreMarca : req.body.marca
-        },{
-            fields: ["NombreMarca"]
-        })
 
-        if(prod && Mar){
-            res.send('producto y marca agregada')
-        }else{
-            res.send('Verifique que lo que introdujo tiene los datos correctos');
-        }
+    }
+
+    let prod = await DataAlmacen.create({
+        Producto: req.body.producto.toLowerCase(),
+        Especificaciones: req.body.especificaciones,
+        MarcaId: req.body.MarcaId
+    }, {
+        fields: ['Producto', 'Especificaciones', 'MarcaId']
+    });
+
+
+    if (prod) {
+        res.send('Producto Agregado correctamente');
+    } else {
+        res.send('Verifique que lo que introdujo tiene los datos correctos');
+    }
 }
 
 module.exports.IngresoData = IngresoData;

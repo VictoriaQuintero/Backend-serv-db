@@ -1,8 +1,21 @@
-const { DataAlmacen, Marcas } = require('../conexionDB/models');
+const { DataAlmacen, Marcas } = require('../models/models');
 
 //Actualizar datos por id
 
 async function UpdateData(req, res){
+
+    let busquedaMar = await Marcas.findAll({
+        where: {
+            NombreMarca: req.body.marca.toLowerCase()
+        }
+    });
+    if(busquedaMar[0] === undefined){
+        await Marcas.create({
+            NombreMarca : req.body.marca
+        },{
+            fields: ["NombreMarca"]
+        });
+    }
     const dataUpdate = await DataAlmacen.update({
         
         Producto: req.body.producto.toLowerCase(),
@@ -14,13 +27,8 @@ async function UpdateData(req, res){
             id : req.params.id
         }
     });
-    let Mar = await Marcas.create({
-        NombreMarca : req.body.marca
-    },{
-        fields: ["NombreMarca"]
-    });
 
-    if(dataUpdate && Mar){
+    if(dataUpdate){
         res.send('Los datos se han actualizado correctamente');
     }else{
         res.send('Los datos no han sido actualizados');

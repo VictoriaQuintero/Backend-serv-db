@@ -1,4 +1,4 @@
-const { DataAlmacen, Marcas } = require('../conexionDB/models');
+const { DataAlmacen, Marcas } = require('../models/models');
 
 //busqueda completa 
 
@@ -34,7 +34,7 @@ async function BusquedaById(req, res) {
 
 
     });
-    if(busquedaId){
+    if(busquedaId[0]){
         res.json(busquedaId);
     }else{
         res.send('El producto que busca no existe');

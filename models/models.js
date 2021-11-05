@@ -1,5 +1,5 @@
 const {DataTypes} = require('sequelize');
-const sequelize = require('./conexSqlize');
+const sequelize = require('../conexionDB/conexSqlize');
 
 const DataAlmacen = sequelize.define('Productos', {
     Id: {

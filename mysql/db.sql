@@ -1,11 +1,17 @@
 CREATE DATABASE ALMACEN;
 CREATE TABLE Marcas(
     MarcaId INTEGER AUTO_INCREMENT PRIMARY KEY,
-    NombreMarca TEXT NOT NULL
+    NombreMarca VARCHAR(20) NOT NULL,
+    UNIQUE(NombreMarca)
 );
 CREATE TABLE Productos(
     Id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    Nombre TEXT NOT NULL,
+    Producto TEXT NOT NULL,
     Especificaciones TEXT,
     MarcaId INTEGER
 );
+
+CREATE TABLE Users(
+    UserName VARCHAR(15),
+    Contraseña VARCHAR(15)
+)
