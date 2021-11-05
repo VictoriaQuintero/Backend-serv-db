@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {IngresoData} = require('../controladores/IngresoData');
-const Consultas = require('../controladores/busquedaData');
-const {UpdateData} = require('../controladores/UpdateData');
-const {DeleteData} = require('../controladores/DeleteData');
+const {IngresoData} = require('../controllers/IngresoData');
+const Consultas = require('../controllers/busquedaData');
+const {UpdateData} = require('../controllers/UpdateData');
+const {DeleteData} = require('../controllers/DeleteData');
 
 //INGRESO DE DATOS
 router.post('/ingreso', IngresoData);

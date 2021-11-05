@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const mysql = require('mysql');
 const funciones = require('./routes/allRoutes'); 
 const CreateUsers = require('./routes/UserRoutes');
-const {busquedaUsers} = require('./controladores/ValidaUser');
+const {busquedaUsers} = require('./controllers/ValidaUser');
 
 app.use(express.json());
 app.use(morgan('dev'));

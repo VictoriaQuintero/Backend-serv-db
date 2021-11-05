@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {CreateUser} = require('../controladores/CrearUser')
-const {busquedaUsers} = require('../controladores/BusquedaUsers')
+const {CreateUser} = require('../controllers/CrearUser')
+const {busquedaUsers} = require('../controllers/BusquedaUsers')
 
 //CREACION DE USUARIOS NUEVOS
 router.post('/createUsers', CreateUser);
