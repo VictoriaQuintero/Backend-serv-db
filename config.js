@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-const mysql = require('mysql');
 const funciones = require('./routes/allRoutes'); 
 const CreateUsers = require('./routes/UserRoutes');
 const {busquedaUsers} = require('./controllers/ValidaUser');
